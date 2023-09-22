@@ -1,5 +1,5 @@
 const express = require("express");
-const db = require("./Service/Koneksi");
+const db = require("./Koneksi");
 const bodyParser = require("body-parser");
 const app = express();
 const port = 3001;
@@ -9,7 +9,7 @@ const multer = require("multer");
 const path = require("path");
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, "public")));
+
 
 const cron = require("node-cron");
 
@@ -32,9 +32,7 @@ cron.schedule("*/15 * * * *", async () => {
   }
 });
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
+
 
 app.get("/orders", (req, res) => {
   const getUsersQuery = "SELECT * FROM orders";
