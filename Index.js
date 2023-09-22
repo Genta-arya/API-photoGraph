@@ -2,7 +2,7 @@ const express = require("express");
 const db = require("./Koneksi");
 const bodyParser = require("body-parser");
 const app = express();
-const port = 3001;
+const port = 3005;
 const cors = require("cors");
 
 const multer = require("multer");
